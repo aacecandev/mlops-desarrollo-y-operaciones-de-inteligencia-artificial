@@ -1,3 +1,4 @@
+.vscode/
 **/.envrc
 **/scan-with-trivy
 **/test*
