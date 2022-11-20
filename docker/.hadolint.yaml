@@ -1,0 +1,8 @@
+# Docker linter https://github.com/hadolint/hadolint
+# # https://github.com/hadolint/hadolint#rules
+
+failure-threshold: warning
+
+label-schema:
+  maintainer: text
+  org.opencontainers.image.authors: text
