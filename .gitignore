@@ -1,0 +1,6 @@
+**/.envrc
+**/scan-with-trivy
+**/test*
+**/config-dont-upload.yaml
+**/amazon-sagemaker-codeserver/
+.aws/credentials
