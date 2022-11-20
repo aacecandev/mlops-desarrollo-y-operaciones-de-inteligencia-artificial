@@ -10,14 +10,18 @@ export REGISTRY_IMAGE_TAG="curso-mlops"
 
 ```
 
+También debemos crear un fichero `.aws/credentials` con las credenciales de AWS a partir de la plantilla `.aws/credentials.template`
+
 **IMPORTANTE**
 
-Todos los comandos están pensados para ser ejecutados desde la raíz del repositorio.
+- Todos los scripts están pensados para ser ejecutados desde la raíz del repositorio.
+- Los scripts de `bash` están pensados para ser ejecutados en un entorno Linux o Mac. Si se ejecutan en Windows, es posible que no funcionen correctamente.
+- Si necesitamos ayuda con el CLI de AWS, podemos acceder a la ayuda de los comandos desde dentro del contenedor de AWS CLI con el comando `docker run -it --rm --entrypoint /bin/bash aacecandev/awscli:curso-mlops` y usando el formato `aws <comando> help`, por ejemplo `aws sagemaker help` o `aws sagemaker create-endpoint-config help`.
 
 ## 1. Creación de una imagen customizada con el CLI de AWS
 
 ```bash
-./modulo7-mlops-y-cloud-computing/scripts/build-docker-awscli.sh
+./scripts/01-build-docker-awscli.sh
 ```
 ## References
 

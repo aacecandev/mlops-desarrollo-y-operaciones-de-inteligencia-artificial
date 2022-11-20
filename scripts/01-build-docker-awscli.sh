@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DOCKERFILE_PATH="./docker/Dockerfile.awscli"
+DOCKER_CONTEXT_PATH="./docker"
+
+docker build \
+-t "${REGISTRY_USER_NAME}/${REGISTRY_IMAGE_NAME}:${REGISTRY_IMAGE_TAG}" \
+-f "${DOCKERFILE_PATH}" \
+"${DOCKER_CONTEXT_PATH}"
+
+docker push "${REGISTRY_USER_NAME}/${REGISTRY_IMAGE_NAME}:${REGISTRY_IMAGE_TAG}"
