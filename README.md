@@ -125,6 +125,30 @@ En este ejercicio vamos a hablar de la importancia de las claves que utilizamos 
 - [git-secrets](https://github.com/awslabs/git-secrets)
 - [sshgit](https://github.com/eth0izzle/shhgit)
 - [bfg-repo-cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
+- aws-nuke + Github Actions
+
+
+## 6. Ejercicio 3 Limpieza de secrets de nuestros repositorios
+
+En este ejercicio vamos a limpiar los secrets de nuestros repositorios utilizando las herramientas que hemos visto en el ejercicio anterior.
+
+Para ello, vamos a utilizar el repositorio de este módulo como ejemplo. Para ello, vamos a utilizar los siguientes comandos:
+
+```bash
+echo "my-super-secret-key" > .secrets
+git add .secrets
+git commit -m "Add secret"
+
+docker run -v $(pwd):/path zricethezav/gitleaks:latest detect --source /path -v
+```
+
+Y a continuación, vamos a utilizar las herramientas que hemos visto en el ejercicio anterior para limpiar el repositorio de los secrets que hemos introducido. Para ello, usaremos el script `scripts/07-bfg-repo-cleaner.sh`.
+
+## 7. IAM con AWS Python SDK
+
+Para continuar, vamos a interactuar con la herramienta que nos falta dentro del conjunto de formas para interactuar con la API de AWS y el último de los servicios básicos que vamos a ver en este módulo en profundidad.
+
+Para seguir el ejercicio usaremos el notebook `notebooks`
 
 ## References
 
