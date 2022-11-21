@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'S3 Bucket for MLOps course'
+Parameters:
+  Timestamp:
+    Type: String
+    Description: Timestamp
+    Default: "1668970863"
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "mlops-test-bucket-${Timestamp}"
+# Outputs:
+#   BucketName:
+#     Description: Name of the S3 bucket
+#     Value: !Ref S3Bucket

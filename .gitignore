@@ -5,3 +5,4 @@
 **/config-dont-upload.yaml
 **/amazon-sagemaker-codeserver/
 .aws/credentials
+MyKeyPair.pem
