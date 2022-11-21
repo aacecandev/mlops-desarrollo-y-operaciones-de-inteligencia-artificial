@@ -106,9 +106,25 @@ En primer lugar, seguiremos las instrucciones de la [documentación oficial sobr
 
 En segundo lugar generaremos una plantilla de CloudFormation `cfn/02-ec2-instance.yml` y ejecutaremos los comandos necesarios para crear el stack, obtener el nombre de la instancia y por último, borrar el stack. Podemos encontrar ejemplos de todos los componentes en la [documentación oficial sobre snippets EC2 con CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html).
 
+## 4. Reseteo de la cuenta de AWS
 
+En este ejercicio vamos a borrar todos los recursos que hemos creado en la cuenta de AWS para poder empezar de cero.
 
+Para ello, vamos a utilizar la herramienta [aws-nuke](https://github.com/rebuy-de/aws-nuke)
 
+Para utilizarla tenemos que revisar cuidadosamente los scripts que se facilitan con este módulo así como la configuración `nuke/config.yaml`, y ejecutarlos en el siguiente orden:
+
+- `scripts/05-docker-nuke-dry-run.sh`
+- `scripts/06-docker-nuke-no-dry-run.sh`
+
+## 5. La importancia de las claves en AWS
+
+En este ejercicio vamos a hablar de la importancia de las claves que utilizamos en nuestros repositorios, y repasaremos cómo podemos prevenir y reaccionar ante fugas de claves utilizando varias herramientas:
+
+- [pre-commit](https://pre-commit.com/)
+- [git-secrets](https://github.com/awslabs/git-secrets)
+- [sshgit](https://github.com/eth0izzle/shhgit)
+- [bfg-repo-cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
 
 ## References
 

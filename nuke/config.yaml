@@ -1,0 +1,107 @@
+regions:
+  # - us-west-2
+  # - us-west-1
+  # - us-east-2
+  - us-east-1
+  # - sa-east-1
+  # - me-south-1
+  # - me-central-1
+  # - global
+  # - eu-west-3
+  # - eu-west-2
+  # - eu-west-1
+  # - eu-south-1
+  # - eu-north-1
+  # - eu-central-1
+  # - ca-central-1
+  # - ap-southeast-3
+  # - ap-southeast-2
+  # - ap-southeast-1
+  # - ap-south-1
+  # - ap-northeast-3
+  # - ap-northeast-2
+  # - ap-northeast-1
+  # - ap-east-1
+  # - af-south-1
+
+account-blocklist:
+  - "999999999999"
+
+accounts:
+  AWS_ACCOUNT_ID_REPLACE_ME:
+    presets:
+      - "ignore-defaults"
+
+feature-flags:
+  disable-deletion-protection:
+    RDSInstance: true
+    EC2Instance: true
+    CloudformationStack: true
+  force-delete-lightsail-addons: true
+
+resource-types:
+  excludes:
+    - AthenaWorkGroup
+    - AppStreamImage
+    - CloudWatchAlarm
+    - CloudWatchDashboard
+    - CloudWatchLogsLogGroup
+    - EC2DefaultSecurityGroupRule
+    - ElasticacheCacheParameterGroup
+    - FMSNotificationChannel
+    - FMSPolicy
+    - KMSAlias
+    - MachineLearningBranchPrediction
+    - MachineLearningDataSource
+    - MachineLearningEvaluation
+    - MachineLearningMLModel
+    - OpsWorksUserProfile
+    - RDSDBParameterGroup
+    - Route53ResolverRule
+    - SESReceiptFilter
+    - SESReceiptRuleSet
+    - SNSSubscription
+    - SNSTopic
+
+presets:
+  ignore-defaults:
+    filters:
+      AthenaWorkGroup:
+        - "primary"
+      IAMUser:
+        - "admin"
+      MediaConvertQueue:
+        - "Default"
+      EC2DHCPOption:
+        - property: DefaultVPC
+          value: "true"
+          invert: false
+      EC2InternetGateway:
+        - property: DefaultVPC
+          value: "true"
+          invert: false
+      EC2InternetGatewayAttachment:
+        - property: DefaultVPC
+          value: "true"
+          invert: false
+      EC2RouteTable:
+        - property: DefaultVPC
+          value: "true"
+          invert: false
+      EC2Subnet:
+        - property: DefaultVPC
+          value: "true"
+          invert: false
+      EC2VPC:
+        - property: IsDefault
+          value: "true"
+          invert: false
+      RDSOptionGroup:
+        - property: Name
+          value: "default:postgres-12"
+          invert: false
+      RDSDBSubnetGroup:
+        - property: Name
+          type: glob
+          value: "default-*"
+          invert: false
