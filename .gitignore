@@ -6,3 +6,7 @@
 **/amazon-sagemaker-codeserver/
 .aws/credentials
 MyKeyPair.pem
+
+# Ejercicio 2
+cfn/02-create-ec2-instance.yaml
+scripts/04-create-ec2-instance.sh
