@@ -148,20 +148,41 @@ Y a continuación, vamos a utilizar las herramientas que hemos visto en el ejerc
 
 Para continuar, vamos a interactuar con la herramienta que nos falta dentro del conjunto de formas para interactuar con la API de AWS y el último de los servicios básicos que vamos a ver en este módulo en profundidad.
 
-Para seguir el ejercicio usaremos el notebook `notebooks`
+Para seguir el ejercicio usaremos el notebook `notebooks/01-aws-execution-role.ipynb`
+
+## 8. Intro & Arquitectura de SageMaker
+
+En esta parte del módulo vamos a repasar de forma teórico-práctica los conceptos básicos de SageMaker, y vamos a interactuar con el servicio a través de la consola Web de AWS y de las APIs disponibles para conocer un poco mejor el servicio.
+
+### 8.1 Desplegando laboratorios SageMaker Classic & Studio
+
+- [[Github] Sample Scripts to Customize SageMaker Notebook Instance](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization)
+
+### 8.2 Arquitectura de SageMaker
+
+- [[AWS] Prebuilt SageMaker Docker Images for Deep Learning](https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html)
+
+### 8.3 SageMaker Custom
+
+- [[AWS] SageMaker Studio Custom Image Samples](https://github.com/aws-samples/sagemaker-studio-custom-image-samples)
+  - [[Github] SageMaker Studio Custom Image Samples](https://github.com/aws-samples/sagemaker-studio-custom-image-samples)
+
+### 8.4 SageMaker Lifecycle Configuration
+
+
 
 ## References
 
 - [[AWS] Machine Learning Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=categories%23ai-ml)
 
 - [[AWS] Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
-- [[Github] SageMaker Studio Custom Image Samples](https://github.com/aws-samples/sagemaker-studio-custom-image-samples)
+
 - [[Github] Jupyter Docker Stacks](https://github.com/jupyter/docker-stacks)
-- [[AWS] SageMaker Studio Custom Image Samples](https://github.com/aws-samples/sagemaker-studio-custom-image-samples)
-- [[AWS] Prebuilt SageMaker Docker Images for Deep Learning](https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html)
+
+
 - [[Github] AWS EFA and NCCL Base AMI/Docker Build Pipeline](https://github.com/aws-samples/aws-efa-nccl-baseami-pipeline)
 - [[Github] AWS Samples](https://github.com/aws-samples)
-- [[Github] Sample Scripts to Customize SageMaker Notebook Instance](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization)
+
 - [[AWS] How Are Amazon SageMaker Studio Notebooks Different from Notebook Instances?](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-comparison.html)
 - [[AWS] Amazon SageMaker Studio Pricing](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-pricing.html)
 - [[AWS] Use Lifecycle Configurations with Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-lcc.html)

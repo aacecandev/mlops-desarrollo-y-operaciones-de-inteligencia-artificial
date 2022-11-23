@@ -6,6 +6,8 @@
 **/amazon-sagemaker-codeserver/
 .aws/credentials
 MyKeyPair.pem
+.virtual_documents/
+.ipynb_checkpoints
 
 # Ejercicio 2
 cfn/02-create-ec2-instance.yaml
