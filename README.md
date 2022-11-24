@@ -121,8 +121,8 @@ Para utilizarla tenemos que revisar cuidadosamente los scripts que se facilitan 
 
 En este ejercicio vamos a hablar de la importancia de las claves que utilizamos en nuestros repositorios, y repasaremos cómo podemos prevenir y reaccionar ante fugas de claves utilizando varias herramientas:
 
+- [gitleaks](https://github.com/zricethezav/gitleaks)
 - [pre-commit](https://pre-commit.com/)
-- [git-secrets](https://github.com/awslabs/git-secrets)
 - [sshgit](https://github.com/eth0izzle/shhgit)
 - [bfg-repo-cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
 - aws-nuke + Github Actions
@@ -150,9 +150,43 @@ Para continuar, vamos a interactuar con la herramienta que nos falta dentro del 
 
 Para seguir el ejercicio usaremos el notebook `notebooks/01-aws-execution-role.ipynb`
 
+## 8. Servicios gestionados en AWS
+
+Durante el desarrollo de este apartado, vamos a hacer un repaso superficial por todos los servicios autogestionados que nos ofrece AWS, y pararemos en dos específicos para verlos en profundidad. Para el desarrollo de este apartado, vamos a utilizar un entorno de ejecución de SageMaker Studio desde el cual ejecutaremos los notebook
+
+- `notebooks/02-managed-services.ipynb`
+- `notebooks/03-sagemaker.ipynb`
+
+Para poder trabajar correctamente con ellos, haremos un fork de este repositorio en nuestro propio perfil de Github, y crearemos un nuevo entorno de ejecución de SageMaker Studio desde el cual podremos trabajar con los notebooks.
+
+Una vez inicializado SageMaker, procederemos a clonar desde una terminal del sistema el repositorio. Para ello, ejecutaremos los siguientes comandos:
+
+```bash
+# Creamos una clave SSH, copiamos la clave pública y la añadimos a nuestro perfil de Github y testeamos
+ssh-keygen -t rsa -b 4096 -C "sagemaker" -f .ssh/id_rsa
+cat .ssh/id_rsa.pub
+ssh -T git@github.com
+
+# Clonamos nuestro propio fork dentro de SageMaker
+git clone git@github/<user>/mlops-desarrollo-y-operaciones-de-inteligencia-artificial.git
+```
+
+Si durante la clase se modificasen los ficheros del repositorio, podemos obtener una copia actualizada de los mismos ejecutando el siguiente comando:
+
+```bash
+git remote add upstream git@github.com:aacecandev/mlops-desarrollo-y-operaciones-de-inteligencia-artificial.git
+git fetch upstream
+git checkout main
+git rebase upstream/main
+```
+
+Toda la documentación sobre gestión de claves SSH podemos encontrarla en el siguiente [enlace de Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
+
 ## 8. Intro & Arquitectura de SageMaker
 
 En esta parte del módulo vamos a repasar de forma teórico-práctica los conceptos básicos de SageMaker, y vamos a interactuar con el servicio a través de la consola Web de AWS y de las APIs disponibles para conocer un poco mejor el servicio.
+
+- [[AWS] What Is Amazon SageMaker?](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
 
 ### 8.1 Desplegando laboratorios SageMaker Classic & Studio
 
@@ -160,16 +194,26 @@ En esta parte del módulo vamos a repasar de forma teórico-práctica los concep
 
 ### 8.2 Arquitectura de SageMaker
 
+
 - [[AWS] Prebuilt SageMaker Docker Images for Deep Learning](https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html)
 
-### 8.3 SageMaker Custom
+### 8.x SageMaker Studio vs SageMaker Classic
+
+- [[AWS] How Are Amazon SageMaker Studio Notebooks Different from Notebook Instances?](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-comparison.html)
+
+### 8.3 SageMaker Classic Custom
+
+
+
+### 8.4 SageMaker Studio Custom
 
 - [[AWS] SageMaker Studio Custom Image Samples](https://github.com/aws-samples/sagemaker-studio-custom-image-samples)
   - [[Github] SageMaker Studio Custom Image Samples](https://github.com/aws-samples/sagemaker-studio-custom-image-samples)
 
 ### 8.4 SageMaker Lifecycle Configuration
 
-
+- [[AWS] Create a Lifecycle Configuration from the AWS CLI](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-lcc-create-cli.html)
+- [[Github] SageMaker Studio Lifecycle Configuration Samples](https://github.com/aws-samples/sagemaker-studio-lifecycle-config-**examples**)
 
 ## References
 
@@ -183,19 +227,23 @@ En esta parte del módulo vamos a repasar de forma teórico-práctica los concep
 - [[Github] AWS EFA and NCCL Base AMI/Docker Build Pipeline](https://github.com/aws-samples/aws-efa-nccl-baseami-pipeline)
 - [[Github] AWS Samples](https://github.com/aws-samples)
 
-- [[AWS] How Are Amazon SageMaker Studio Notebooks Different from Notebook Instances?](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-comparison.html)
 - [[AWS] Amazon SageMaker Studio Pricing](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-pricing.html)
+
 - [[AWS] Use Lifecycle Configurations with Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-lcc.html)
+
 - [[AWS] Use Amazon SageMaker Studio Notebooks](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks.html)
-- [[AWS] Create a Lifecycle Configuration from the AWS CLI](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-lcc-create-cli.html)
+
+
+
 - [[Github] SageMaker-Studio-Autoshutdown-Extension](https://github.com/aws-samples/sagemaker-studio-auto-shutdown-extension)
-- [[Github] SageMaker Studio Lifecycle Configuration Samples](https://github.com/aws-samples/sagemaker-studio-lifecycle-config-**examples**)
+
+
 - [[Towards Data Science] Customizing SageMaker Studio](https://towardsdatascience.com/run-setup-scripts-automatically-on-sagemaker-studio-15222b9d2f8c)
 - [[AWS] Bringing your own custom container image to Amazon SageMaker Studio notebooks](https://aws.amazon.com/blogs/machine-learning/bringing-your-own-custom-container-image-to-amazon-sagemaker-studio-notebooks/)
 - [[AwsTut] Delete ECR images using CloudFormation Custom Resources](https://awstut.com/en/2022/08/27/delete-ecr-images-using-cloudformation-custom-resources-en/)
 - [[AWS] Attach a custom SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi-attach.html)
 - [[Towards Data Science] Automating the Setup of SageMaker Studio Custom Images](https://towardsdatascience.com/automating-the-setup-of-sagemaker-studio-custom-images-4a3433fd7148)
-- [[AWS] What Is Amazon SageMaker?](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+
 - [[Github] Issue, Attach custom image to SageMaker domain without update-domain command](https://github.com/aws/aws-sdk/issues/367)
 - [[AWS] Launch a custom SageMaker image in Amazon SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi-launch.html)
 - [[AWS] Customize Amazon SageMaker Studio using Lifecycle Configurations](https://aws.amazon.com/blogs/machine-learning/customize-amazon-sagemaker-studio-using-lifecycle-configurations/)
