@@ -182,6 +182,12 @@ git rebase upstream/main
 
 Toda la documentación sobre gestión de claves SSH podemos encontrarla en el siguiente [enlace de Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
 
+### 8.1. Ejercicio 2: Moderación de contenido de video
+
+Para este ejercicio nos apoyaremos en los dos notebooks que hemos visto en este apartado para hacer una llamada a la API de Rekognition enviando el video `./media/weapon.mp4`, que tendremos que almacenar en S3 previamente.
+
+Como resultado tenemos que recibir un JSON en el cual se nos indicará la probabilidad de que el video contenga contenido violento en un momento concreto del mismo.
+
 ## 8. Intro & Arquitectura de SageMaker
 
 En esta parte del módulo vamos a repasar de forma teórico-práctica los conceptos básicos de SageMaker, y vamos a interactuar con el servicio a través de la consola Web de AWS y de las APIs disponibles para conocer un poco mejor el servicio.
