@@ -13,3 +13,6 @@ MyKeyPair.pem
 # Ejercicio 2
 cfn/02-create-ec2-instance.yaml
 scripts/04-create-ec2-instance.sh
+
+# Ejercicio 8
+notebooks/05-content-moderation-video.ipynb
