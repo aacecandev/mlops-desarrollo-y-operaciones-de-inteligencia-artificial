@@ -188,7 +188,7 @@ Para este ejercicio nos apoyaremos en los dos notebooks que hemos visto en este 
 
 Como resultado tenemos que recibir un JSON en el cual se nos indicará la probabilidad de que el video contenga contenido violento en un momento concreto del mismo.
 
-## 9. SageMaker
+## 9. SageMaker, introducción y arquitectura
 
 En esta parte del módulo vamos a repasar de forma teórico-práctica los conceptos básicos de SageMaker, y vamos a interactuar con el servicio a través de la consola Web de AWS y de las APIs disponibles para conocer un poco mejor el servicio.
 
@@ -233,7 +233,7 @@ Podemos encontrar valiosos ejemplos de configuración mediante LifecycleConfig e
 
 Es importante también repasar los logs en [CloudWatch](https://aws.amazon.com/cloudwatch/) para ver qué ha ocurrido durante el proceso de instalación.
 
-#### 9.1.2 Ejercicio 4 Despliegue de una instancia de SageMaker Classic personalizada con CloudFormation
+#### 9.1.2 Ejercicio 4 Despliegue de una instancia de SageMaker Classic personalizada
 
 En este ejercicio vamos a modificar el SageMaker Classic. Para ello, vamos a utilizar como base el template y el script que hemos visto en el apartado anterior para obtener una instancia limpia, y una vez desplegado, vamos a utilizar los [scripts de customización oficiales](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization).
 
@@ -242,6 +242,20 @@ Una vez instalado, vamos a repasar los logs de instalación en  ya que es allí 
 #### 9.1.3 Desplegando laboratorios SageMaker Studio
 
 Ahora vamos a desplegar una instancia de SageMaker Studio. Este tipo de notebook funciona distinto como ya vimos, ya que utiliza [Jupyter Enterprise Gateway](https://jupyter-kernel-gateway.readthedocs.io/en/latest/) (**importante no confundirnos con [Jupyter Enterprise Gateway](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/index.html)**)
+
+En primer lugar vamos a centrarnos en conseguir una instancia vanilla de SageMaker Studio. Para ello, vamos a utilizar los siguientes ficheros:
+
+- Archivo con la template de CloudFormation: [05-create-sagemaker-vanilla.yaml](./cfn/05-create-sagemaker-vanilla.yaml)
+- Script para la creación del stack: [09-cfn-stack-sagemaker-vanilla.sh](./scripts/09-cfn-stack-sagemaker-vanilla.sh)
+
+Repasaremos estos ficheros para entender qué es lo que estamos desplegando.
+
+En segundo lugar, vamos a desplegar una instancia customizada de SageMaker Studio. Para ello, vamos a utilizar los siguientes ficheros:
+
+- Archivo con la template de CloudFormation: [06-create-sagemaker-custom.yaml](./cfn/06-create-sagemaker-custom.yaml)
+- Script para la creación del stack: [10-cfn-stack-sagemaker-custom.sh](./scripts/10-cfn-stack-sagemaker-custom.sh)
+
+Repasaremos estos ficheros para entender qué es lo que estamos desplegando.
 
 ### 9.2 Ejercicio guiado: Entrenamiento tradicional dentro de Sagemaker
 
