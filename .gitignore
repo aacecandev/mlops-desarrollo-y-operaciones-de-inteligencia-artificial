@@ -10,6 +10,7 @@ MyKeyPair.pem
 .ipynb_checkpoints
 **/tmp
 bin/
+notebooks/output/
 
 # Ejercicio 2
 cfn/02-create-ec2-instance.yaml
