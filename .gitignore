@@ -16,5 +16,8 @@ notebooks/output/
 cfn/02-create-ec2-instance.yaml
 scripts/04-create-ec2-instance.sh
 
-# Ejercicio 8
+# Ejercicio 3
 notebooks/05-content-moderation-video.ipynb
+
+# Ejercicio 4
+cfn/04-create-sagemaker-notebook-classic-with-customization.yaml

@@ -157,7 +157,7 @@ Durante el desarrollo de este apartado, vamos a hacer un repaso superficial por 
 - `notebooks/02-managed-services.ipynb`
 - `notebooks/03-sagemaker.ipynb`
 
-Para poder trabajar correctamente con ellos, haremos un fork de este repositorio en nuestro propio perfil de Github, y crearemos un nuevo entorno de ejecución de SageMaker Studio desde el cual podremos trabajar con los notebooks.
+Para poder trabajar correctamente con ellos, haremos un fork de este repositorio en nuestro propio perfil de [Github] y crearemos un nuevo entorno de ejecución de SageMaker Studio desde el cual podremos trabajar con los notebooks.
 
 Una vez inicializado SageMaker, procederemos a clonar desde una terminal del sistema el repositorio. Para ello, ejecutaremos los siguientes comandos:
 
@@ -188,15 +188,83 @@ Para este ejercicio nos apoyaremos en los dos notebooks que hemos visto en este 
 
 Como resultado tenemos que recibir un JSON en el cual se nos indicará la probabilidad de que el video contenga contenido violento en un momento concreto del mismo.
 
-## 8. Intro & Arquitectura de SageMaker
+## 9. SageMaker
 
 En esta parte del módulo vamos a repasar de forma teórico-práctica los conceptos básicos de SageMaker, y vamos a interactuar con el servicio a través de la consola Web de AWS y de las APIs disponibles para conocer un poco mejor el servicio.
 
+Tenemos a nuestra disposición este [video con un repaso en 5 minutos](https://www.youtube.com/watch?v=Qv_Tr_BCFCQ) del servicio
+
 - [[AWS] What Is Amazon SageMaker?](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
+- [[AWS] Amazon SageMaker Components](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-components.html)
+- [[AWS] Deep Dive into Amazon SageMaker Studio Notebook Architecture](https://aws.amazon.com/blogs/machine-learning/dive-deep-into-amazon-sagemaker-studio-notebook-architecture/)
 
-### 8.1 Desplegando laboratorios SageMaker Classic & Studio
+**En este punto comenzaremos desplegando SageMaker Studio a través de la UI** para familiarizarnos con el proceso, ya que tardará unos minutos en estar disponible. Podemos continuar con el siguiente apartado mientras se despliega.
 
-- [[Github] Sample Scripts to Customize SageMaker Notebook Instance](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization)
+### 9.1 SageMaker Pricing
+
+Es importante que conozcamos cómo y por qué conceptos puede AWS facturarnos mientras que utilizamos el servicio SageMaker. En primer lugar, tenemos que tener en cuenta que como acabamos de crear una cuenta, estamos dentro de la [capa gratuita de SageMaker](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all&all-free-tier.q=SageMaker&all-free-tier.q_operator=AND), por lo que durante el desarrollo del módulo **no vamos a tener que pagar nada**.
+
+Pero aun así, repasar los conceptos de facturación nos va a ayudar a entender mejor el servicio y a saber cómo podemos optimizar el uso de los recursos. Para ello, podemos consultar la siguiente [página de AWS](https://aws.amazon.com/sagemaker/pricing/).
+
+Y además tenemos que tener en cuenta que el almacenamiento que utilicemos tanto en [S3](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all&all-free-tier.q=s3&all-free-tier.q_operator=AND) como en [EFS](https://aws.amazon.com/efs/pricing/)
+
+A todos los efectos, tenemos que tener en nuestros favoritos la [calculadora de precios de SageMaker](https://calculator.aws/#/addService/SageMaker) ya que en algún momento de nuestra carrera, como arquitectos de soluciones de ML en AWS, nos van a pedir presupuestos para proyectos y tendremos que saber cómo calcularlos y ajustarlos lo máximo posible.
+
+### 9.1 Despliegue de SageMaker
+
+Antes de comenzar a trabajar con SageMaker, vamos a hacer un rápido repaso de los tipos de notebooks disponibles, y se facilitarán las siguientes templates de despliegue de SageMaker utilizando CloudFormation:
+
+- [SageMaker Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-console.html)
+- [SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html)
+- [SageMaker Studio Lab](https://studiolab.sagemaker.aws/faq) -> Registro, nos lleva a una lista de espera
+
+#### 9.1.1 Desplegando laboratorios SageMaker Classic
+
+Para desplegar este tipo de recurso es importante leer la sección de parámetros de la template de CloudFormation para tener una idea global de lo que vamos a desplegar.
+
+Vamos a utilizar para este fin los siguientes ficheros:
+
+- Archivo con la template de CloudFormation: [03-sagemaker-notebook-classic.yaml](./cfn/03-sagemaker-notebook-classic.yaml)
+- Script para la creación del stack: [08-cfn-stack-sagemaker-notebook-classic.sh](./scripts/08-cfn-stack-sagemaker-notebook-classic.sh)
+
+Es importante recordar que en la arquitectura de nuestro notebook classic, el almacenamiento está basado en EBS, por lo que si queremos hacer uso de los datos que tengamos en S3, tendremos que montar el volumen de EFS en el notebook.
+
+Podemos encontrar valiosos ejemplos de configuración mediante LifecycleConfig en el [repositorio oficial de ejemplos](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-lifecycle-config-samples).
+
+Es importante también repasar los logs en [CloudWatch](https://aws.amazon.com/cloudwatch/) para ver qué ha ocurrido durante el proceso de instalación.
+
+#### 9.1.2 Ejercicio 4 Despliegue de una instancia de SageMaker Classic personalizada con CloudFormation
+
+En este ejercicio vamos a modificar el SageMaker Classic. Para ello, vamos a utilizar como base el template y el script que hemos visto en el apartado anterior para obtener una instancia limpia, y una vez desplegado, vamos a utilizar los [scripts de customización oficiales](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization).
+
+Una vez instalado, vamos a repasar los logs de instalación en  ya que es allí donde encontraremos logs valiosos que contendrán, por ejemplo, la URL desde la que podremos acceder a `code-server`.
+
+#### 9.1.3 Desplegando laboratorios SageMaker Studio
+
+Ahora vamos a desplegar una instancia de SageMaker Studio. Este tipo de notebook funciona distinto como ya vimos, ya que utiliza [Jupyter Enterprise Gateway](https://jupyter-kernel-gateway.readthedocs.io/en/latest/) (**importante no confundirnos con [Jupyter Enterprise Gateway](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/index.html)**)
+
+### 9.2 Ejercicio guiado: Entrenamiento tradicional dentro de Sagemaker
+
+Vamos a comenzar trabajando de forma tradicional dentro de SageMaker, y a continuación vamos a realizar el mismo ejercicio utilizando las APIs de SageMaker. Por último, vamos a realizar el mismo ejercicio.
+
+En primer lugar, vamos a utilizar el notebook [09-sagemaker-traditional-approach.ipynb](./notebooks/09-sagemaker-traditional-approach.ipynb) para realizar un entrenamiento de regresión lineal utilizando el dataset de [Boston Housing dataset](https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html).
+
+### 9.3 Ejercicio guiado: Entrenamiento utilizando las APIs Sagemaker
+
+Una vez realizado el entrenamiento, vamos a utilizar el notebook `notebooks/10-sagemaker-using-sagemaker-features-approach.ipynb` para realizar el mismo ejercicio utilizando las APIs de SageMaker.
+
+### 9.4 Ejercicio guiado: Entrenamiento utilizando SageMaker Autopilot (AutoML)
+
+Por último utilizaremos el notebook `notebooks/11-sagemaker-using-autopilot-approach.ipynb` para dejar decidir a un trabajo de AutoML la mejor forma de realizar el entrenamiento sobre el Dataset [California housing](http://lib.stat.cmu.edu/datasets/) utlizando [AutoPilot](https://aws.amazon.com/sagemaker/autopilot/).
+
+### 9.5 Ejercicio 3: Entrenamiento con Autopilot
+
+https://github.com/aws/amazon-sagemaker-examples/blob/main/autopilot/autopilot_customer_churn.ipynb
+
+
+########
+########
+########
 
 ### 8.2 Arquitectura de SageMaker
 
@@ -259,14 +327,15 @@ En esta parte del módulo vamos a repasar de forma teórico-práctica los concep
 
 ### AWS Comprehend
 
-- [AWS, What is Amazon Comprehend?](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html)
-- [AWS, Languages supported in Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html)
+- [[AWS] What is Amazon Comprehend?](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html)
+- [[AWS] Languages supported in Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html)
 
 
 ## Further Reading
 
-- [AWS, Secure Data Science with Amazon SageMaker Studio Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/c882cd42-8ec8-4112-9469-9fab33471e85/en-US)
-- [Github, AWS CloudFormation resource providers SageMaker](https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sagemaker)
-- [AWS, Amazon SageMaker Fridays](https://pages.awscloud.com/SageMakerFridays)
-- [YouTube, Kubeflow + BERT + TensorFlow + PyTorch + Reinforcement Learning +Multi-arm Bandits +Amazon SageMaker](https://www.youtube.com/watch?v=9_SWaKdZhEM)
-- [Gitub, awesome-sagemaker](https://github.com/aws-samples/awesome-sagemaker)
+- [[AWS] Secure Data Science with Amazon SageMaker Studio Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/c882cd42-8ec8-4112-9469-9fab33471e85/en-US)
+- [[Github] AWS CloudFormation resource providers SageMaker](https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sagemaker)
+- [[AWS] Amazon SageMaker Fridays](https://pages.awscloud.com/SageMakerFridays)
+- [[YouTube] Kubeflow + BERT + TensorFlow + PyTorch + Reinforcement Learning +Multi-arm Bandits + Amazon SageMaker](https://www.youtube.com/watch?v=9_SWaKdZhEM)
+- [[Gitub] awesome-sagemaker](https://github.com/aws-samples/awesome-sagemaker)
+- [[Github][Terraform] Terrafrom SageMaker Sample](https://github.com/yuyasugano/terraform-sagemaker-sample-1)
