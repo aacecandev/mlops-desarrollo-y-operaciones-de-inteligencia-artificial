@@ -21,6 +21,10 @@ scripts/11-cfn-stack-sagemaker-custom.sh
 notebooks/data/
 notebooks/model/
 notebooks/preprocessing.py
+notebooks/batch-score.py
+notebooks/model_def.py
+notebooks/score-report.txt
+notebooks/train.py
 
 # Ejercicio 2
 cfn/02-create-ec2-instance.yaml
