@@ -2,8 +2,6 @@ AWSTemplateFormatVersion: "2010-09-09"
 
 Description: >
   This template builds a SageMaker Domain and a SageMaker Studio Notebook Instance.
-  Project site: https://github.com/drumadrian/custom-cloudformation-bucket-cleanup
-
 
 Parameters:
   UserProfileName:
