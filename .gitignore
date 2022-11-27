@@ -20,6 +20,7 @@ scripts/10-cfn-stack-ecr-and-codebuild.sh
 scripts/11-cfn-stack-sagemaker-custom.sh
 notebooks/data/
 notebooks/model/
+notebooks/preprocessing.py
 
 # Ejercicio 2
 cfn/02-create-ec2-instance.yaml
