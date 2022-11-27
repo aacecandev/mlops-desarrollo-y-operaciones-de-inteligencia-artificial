@@ -11,6 +11,13 @@ MyKeyPair.pem
 **/tmp
 bin/
 notebooks/output/
+cfn/06-create-codebuild.yaml
+cfn/07-create-sagemaker-custom.yaml
+cfn/ecr-and-codebuild/
+docker/Dockerfile
+docker/requirements.txt
+scripts/10-cfn-stack-ecr-and-codebuild.sh
+scripts/11-cfn-stack-sagemaker-custom.sh
 
 # Ejercicio 2
 cfn/02-create-ec2-instance.yaml
