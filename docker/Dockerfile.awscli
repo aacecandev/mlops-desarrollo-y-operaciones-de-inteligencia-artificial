@@ -17,8 +17,8 @@ RUN \
     yum install --assumeyes \
       jq-1.5-1.amzn2.0.2.x86_64 \
       openssh-clients-7.4p1 \
-      openssl-1.0.2k && \
-      tar-1.26 && \
+      openssl-1.0.2k \
+      tar-1.26 \
       gzip-1.5 && \
     # Prevent apt-get cache and from being persisted to this layer.
     yum clean all && \
