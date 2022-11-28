@@ -10,7 +10,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "mlops-test-bucket-${Timestamp}"
-# Outputs:
-#   BucketName:
-#     Description: Name of the S3 bucket
-#     Value: !Ref S3Bucket
+Outputs:
+  BucketName:
+    Description: Name of the S3 bucket
+    Value: !Ref S3Bucket

@@ -188,6 +188,11 @@ Para este ejercicio nos apoyaremos en los dos notebooks que hemos visto en este 
 
 Como resultado tenemos que recibir un JSON en el cual se nos indicará la probabilidad de que el video contenga contenido violento en un momento concreto del mismo.
 
+### 8.2. Ejercicio guiado: Uso de Comprehend
+
+- [[AWS] What is Amazon Comprehend?](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html)
+- [[AWS] Languages supported in Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html)
+
 ## 9. SageMaker, introducción y arquitectura
 
 En esta parte del módulo vamos a repasar de forma teórico-práctica los conceptos básicos de SageMaker, y vamos a interactuar con el servicio a través de la consola Web de AWS y de las APIs disponibles para conocer un poco mejor el servicio.
@@ -216,7 +221,7 @@ Antes de comenzar a trabajar con SageMaker, vamos a hacer un rápido repaso de l
 
 - [SageMaker Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-console.html)
 - [SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html)
-- [SageMaker Studio Lab](https://studiolab.sagemaker.aws/faq) -> Registro, nos lleva a una lista de espera
+- [SageMaker Studio Lab](https://studiolab.sagemaker.aws/faq)
 
 #### 9.1.1 Desplegando laboratorios SageMaker Classic
 
@@ -248,14 +253,15 @@ En primer lugar vamos a centrarnos en conseguir una instancia vanilla de SageMak
 - Archivo con la template de CloudFormation: [05-create-sagemaker-vanilla.yaml](./cfn/05-create-sagemaker-vanilla.yaml)
 - Script para la creación del stack: [09-cfn-stack-sagemaker-vanilla.sh](./scripts/09-cfn-stack-sagemaker-vanilla.sh)
 
-Repasaremos estos ficheros para entender qué es lo que estamos desplegando.
+#### 9.1.4 Ejercicio 5 Customización de SageMaker Studio con LifecycleConfig
 
-En segundo lugar, vamos a desplegar una instancia customizada de SageMaker Studio. Para ello, vamos a utilizar los siguientes ficheros:
+Para este ejercicio guiado vamos a utilizar los siguientes ficheros:
 
-- Archivo con la template de CloudFormation: [06-create-sagemaker-custom.yaml](./cfn/06-create-sagemaker-custom.yaml)
-- Script para la creación del stack: [10-cfn-stack-sagemaker-custom.sh](./scripts/10-cfn-stack-sagemaker-custom.sh)
+- Script que convertiremos a base64: [10-sagemaker-studio-customization.sh](./scripts/10-sagemaker-studio-customization.sh)
 
-Repasaremos estos ficheros para entender qué es lo que estamos desplegando.
+## 10. SageMaker Studio y MLOps
+
+Una vez tenemos una guía para realizar despliegues automatizados, vamos a utilizar nuestra instalación del tipo vanilla para conseguir un pipeline MLOps utilizando SageMaker Studio.
 
 ### 9.2 Ejercicio guiado: Entrenamiento tradicional dentro de Sagemaker
 
@@ -341,15 +347,12 @@ https://github.com/aws/amazon-sagemaker-examples/blob/main/autopilot/autopilot_c
 
 ### AWS Comprehend
 
-- [[AWS] What is Amazon Comprehend?](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html)
-- [[AWS] Languages supported in Amazon Comprehend](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html)
-
 
 ## Further Reading
 
 - [[AWS] Secure Data Science with Amazon SageMaker Studio Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/c882cd42-8ec8-4112-9469-9fab33471e85/en-US)
 - [[Github] AWS CloudFormation resource providers SageMaker](https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sagemaker)
 - [[AWS] Amazon SageMaker Fridays](https://pages.awscloud.com/SageMakerFridays)
-- [[YouTube] Kubeflow + BERT + TensorFlow + PyTorch + Reinforcement Learning +Multi-arm Bandits + Amazon SageMaker](https://www.youtube.com/watch?v=9_SWaKdZhEM)
+- [[YouTube] Kubeflow + BERT + TensorFlow + PyTorch + Reinforcement Learning + Multi-arm Bandits + Amazon SageMaker](https://www.youtube.com/watch?v=9_SWaKdZhEM)
 - [[Gitub] awesome-sagemaker](https://github.com/aws-samples/awesome-sagemaker)
 - [[Github][Terraform] Terrafrom SageMaker Sample](https://github.com/yuyasugano/terraform-sagemaker-sample-1)

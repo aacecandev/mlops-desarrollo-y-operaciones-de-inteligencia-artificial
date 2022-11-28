@@ -26,9 +26,6 @@ notebooks/model_def.py
 notebooks/score-report.txt
 notebooks/train.py
 
-# Ejercicio 2
-cfn/02-create-ec2-instance.yaml
-scripts/04-create-ec2-instance.sh
 
 # Ejercicio 3
 notebooks/05-content-moderation-video.ipynb
