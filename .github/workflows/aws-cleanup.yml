@@ -16,7 +16,7 @@ jobs:
 
       - name: Setup aws-nuke
         run: |
-          wget -q https://github.com/rebuy-de/aws-nuke/releases/download/v2.19.0/aws-nuke-v2.19.0-linux-amd64.tar.gz
+          wget -q https://github.com/rebuy-de/aws-nuke/releases/download/v2.20.0/aws-nuke-v2.20.0-linux-amd64.tar.gz
           tar -xvf aws-nuke-v2.19.0-linux-amd64.tar.gz
           mv aws-nuke-v2.19.0-linux-amd64 aws-nuke
           chmod +x aws-nuke
