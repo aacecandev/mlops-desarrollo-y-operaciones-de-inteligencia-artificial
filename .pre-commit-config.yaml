@@ -24,16 +24,3 @@ repos:
       entry: hadolint
       files: \.\/docker\/.*$
       exclude: \.terraform\/.*$
-
-# - repo: https://github.com/antonbabenko/pre-commit-terraform
-#   rev: "v1.76.0"
-#   hooks:
-#     - id: terraform_checkov
-#       name: Checkov
-#       description: Runs checkov on Terraform templates.
-#       entry: hooks/terraform_checkov.sh
-#       language: script
-#       always_run: false
-#       files: \.*$
-#       exclude: \.terraform\/.*$
-#       require_serial: true
