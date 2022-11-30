@@ -27,8 +27,5 @@ notebooks/score-report.txt
 notebooks/train.py
 
 
-# Ejercicio 3
-notebooks/05-content-moderation-video.ipynb
-
 # Ejercicio 4
 cfn/04-create-sagemaker-notebook-classic-with-customization.yaml
