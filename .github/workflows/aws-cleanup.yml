@@ -23,7 +23,7 @@ jobs:
 
       - name: Run AWS nuke
         run: |
-          ls -la
+          ls -ltR
           sed -i -e "s/AWS_ACCOUNT_ID_REPLACE_ME/${AWS_ACCOUNT_ID}/" nuke/config.yaml
           sed -i -e "s/AWS_IAM_USER_REPLACE_ME/${AWS_IAM_USER}/" nuke/config.yaml
           sed -i -e "s/AWS_ACCESS_KEY_ID/${AWS_ACCESS_KEY_ID}/" nuke/config.yaml
