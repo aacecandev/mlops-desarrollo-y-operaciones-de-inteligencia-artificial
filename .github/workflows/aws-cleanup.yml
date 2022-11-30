@@ -23,7 +23,9 @@ jobs:
 
       - name: Run AWS nuke against management account
         run: |
-          sed -i "s/AWS_ACCOUNT_ID_REPLACE_ME/${{ secrets.AWS_ACCOUNT_ID }}/" nuke/config.yaml
+          sed -i -e "s/AWS_ACCOUNT_ID_REPLACE_ME/${AWS_ACCOUNT_ID} nuke/config.yaml
+          sed -i -e "s/AWS_IAM_USER_REPLACE_ME/${AWS_IAM_USER} nuke/config.yaml
+          sed -i -e "s/AWS_ACCESS_KEY_ID/${AWS_ACCESS_KEY_ID} nuke/config.yaml
           ./aws-nuke --config nuke/config.yaml \
             --access-key-id "${{ secrets.AWS_ACCESS_KEY_ID }}" \
             --secret-access-key "${{ secrets.AWS_SECRET_ACCESS_KEY }}" \

@@ -11,7 +11,8 @@ export DOCKER_REGISTRY_IMAGE_TAG="curso-mlops"
 # Variables relacionadas con AWS
 export AWS_DEFAULT_REGION="us-east-1"
 export AWS_ACCOUNT_ID="123456789012" # $(aws sts get-caller-identity --query Account --output text)
-
+export AWS_IAM_USER="alejandro.aceituna"
+export AWS_ACCESS_KEY_ID=ThiIsMYaccessKEY
 ```
 
 También debemos crear un fichero `.aws/credentials` con las credenciales de AWS a partir de la plantilla `.aws/credentials.template`
@@ -99,8 +100,8 @@ Tenemos que conseguir generar los siguientes componentes:
 
 - SSH Key Pair con permisos Unix 400 (sólo lectura para el usuario propietario)
 - Security Group con el puerto 22 abierto para nuestra IP pública
--
-
+- VPC (default o custom) con sus subnets
+- Conocer el ID de la AMI
 
 En primer lugar, seguiremos las instrucciones de la [documentación oficial sobre EC2 con CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2.html) para crear todos los componentes necesarios de la instancia y poder conectarnos a ella.
 
@@ -123,7 +124,7 @@ En este ejercicio vamos a hablar de la importancia de las claves que utilizamos 
 
 - [gitleaks](https://github.com/zricethezav/gitleaks)
 - [pre-commit](https://pre-commit.com/)
-- [sshgit](https://github.com/eth0izzle/shhgit)
+- [shhgit](https://github.com/eth0izzle/shhgit)
 - [bfg-repo-cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
 - aws-nuke + Github Actions
 

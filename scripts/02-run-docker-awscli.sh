@@ -8,6 +8,7 @@
 CLOUDFORMATION_FOLDER=cfn
 SCRIPTS_FOLDER=scripts
 STUDIO_FOLDER=studio
+NOTEBOOKS_FOLDER=notebooks
 
 docker run \
 --rm \
@@ -18,6 +19,7 @@ docker run \
 --volume "$(pwd)/${CLOUDFORMATION_FOLDER}":/cfn \
 --volume "$(pwd)/${SCRIPTS_FOLDER}":/scripts \
 --volume "$(pwd)/${STUDIO_FOLDER}":/studio \
+--volume "$(pwd)/${NOTEBOOKS_FOLDER}":/notebooks \
 --volume "$(pwd)"/.aws:/root/.aws \
 --workdir / \
 --entrypoint /bin/bash \

@@ -11,6 +11,7 @@ regions:
   - eu-west-2
   - eu-west-1
   - eu-south-1
+  - eu-south-2
   - eu-north-1
   - eu-central-1
   - ca-central-1
@@ -68,10 +69,14 @@ presets:
     filters:
       AthenaWorkGroup:
         - "primary"
+      IAMLoginProfile:
+        - "AWS_IAM_USER_REPLACE_ME"
       IAMUser:
-        - "admin"
-        - "alejandro.aceituna"
-        - "borja.lopez"
+        - "AWS_IAM_USER_REPLACE_ME"
+      IAMUserAccessKey:
+        - "AWS_IAM_USER_REPLACE_ME -> AWS_ACCESS_KEY_ID"
+      IAMUserPolicyAttachment:
+        - "AWS_IAM_USER_REPLACE_ME -> AdministratorAccess"
       MediaConvertQueue:
         - "Default"
       EC2DHCPOption:
