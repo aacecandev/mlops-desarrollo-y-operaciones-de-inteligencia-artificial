@@ -21,8 +21,9 @@ jobs:
           mv aws-nuke-v2.20.0-linux-amd64 aws-nuke
           chmod +x aws-nuke
 
-      - name: Run AWS nuke against management account
+      - name: Run AWS nuke
         run: |
+          ls -la
           sed -i -e "s/AWS_ACCOUNT_ID_REPLACE_ME/${AWS_ACCOUNT_ID}/" nuke/config.yaml
           sed -i -e "s/AWS_IAM_USER_REPLACE_ME/${AWS_IAM_USER}/" nuke/config.yaml
           sed -i -e "s/AWS_ACCESS_KEY_ID/${AWS_ACCESS_KEY_ID}/" nuke/config.yaml
