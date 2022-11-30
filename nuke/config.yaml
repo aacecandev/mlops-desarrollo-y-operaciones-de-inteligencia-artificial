@@ -77,6 +77,8 @@ presets:
         - "AWS_IAM_USER_REPLACE_ME -> AWS_ACCESS_KEY_ID"
       IAMUserPolicyAttachment:
         - "AWS_IAM_USER_REPLACE_ME -> AdministratorAccess"
+      IAMVirtualMFADevice:
+        - "arn:aws:iam::AWS_ACCOUNT_ID_REPLACE_ME:mfa/AWS_IAM_USER_REPLACE_ME"
       MediaConvertQueue:
         - "Default"
       EC2DHCPOption:
