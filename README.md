@@ -291,7 +291,7 @@ Una vez instalado, vamos a repasar los logs de instalación en  ya que es allí 
 
 ####  10.2.3. <a name='DesplegandolaboratoriosSageMakerStudio'></a>9.1.3 Desplegando laboratorios SageMaker Studio
 
-Ahora vamos a desplegar una instancia de SageMaker Studio. Este tipo de notebook funciona distinto como ya vimos, ya que utiliza [Jupyter Enterprise Gateway](https://jupyter-kernel-gateway.readthedocs.io/en/latest/) (**importante no confundirnos con [Jupyter Enterprise Gateway](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/index.html)**)
+Ahora vamos a desplegar una instancia de SageMaker Studio. Este tipo de notebook funciona distinto como ya vimos, ya que utiliza [Jupyter Kernel Gateway](https://jupyter-kernel-gateway.readthedocs.io/en/latest/) (**importante no confundirnos con [Jupyter Enterprise Gateway](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/index.html)**)
 
 En primer lugar vamos a centrarnos en conseguir una instancia vanilla de SageMaker Studio. Para ello, vamos a utilizar los siguientes ficheros:
 
@@ -368,6 +368,14 @@ Podéis encontrar muy buenos ejemplos en el repositorio de [Amazon SageMaker Exa
 
 ##  13. <a name='References'></a>References
 
+- [[Github] Data Science on AWS](https://github.com/data-science-on-aws/data-science-on-aws/blob/main/10_pipeline/sagemaker_mlops/01_Create_SageMaker_Pipeline_BERT_Reviews_MLOps.ipynb)
+- [[AWS] Amazon SageMaker MLOps Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/7acdc7d8-0ac0-44de-bd9b-e3407147a59c/en-US)
+- [[Github] Amazon SageMaker MLOps Workshop](https://github.com/aws-samples/amazon-sagemaker-mlops-workshop)
+- [[ReadTheDocs] SageMaker Examples](https://sagemaker-examples.readthedocs.io/en/latest/)
+- [[Github] Amazon SageMaker Examples](https://github.com/aws/amazon-sagemaker-examples)
+- [[Github] Amazon Forecast Examples](https://github.com/aws-samples/amazon-forecast-samples)
+- [[Github] Amazon SageMaker Local Mode](https://github.com/aws-samples/amazon-sagemaker-local-mode)
+- [[Github] SageMaker 101 Workshop](https://github.com/aws-samples/sagemaker-101-workshop)
 - [[AWS] Machine Learning Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=categories%23ai-ml)
 - [[AWS] Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
 - [[Github] Jupyter Docker Stacks](https://github.com/jupyter/docker-stacks)
@@ -388,6 +396,27 @@ Podéis encontrar muy buenos ejemplos en el repositorio de [Amazon SageMaker Exa
 - [[Github] SageMaker Studio Lifecycle Configuration Samples](https://github.com/aws-samples/sagemaker-studio-lifecycle-config-examples#sagemaker-studio-lifecycle-configuration-samples)
 - [[AWS] Host code-server on Amazon SageMaker](https://aws.amazon.com/blogs/machine-learning/host-code-server-on-amazon-sagemaker/)
 - [[Github] https://github.com/aws-samples/amazon-sagemaker-codeserver#code-server-on-amazon-sagemaker](https://github.com/aws-samples/amazon-sagemaker-codeserver)
+- [[AWS] Amazon SageMaker Experiments – Organize, Track And Compare Your Machine Learning Trainings](https://aws.amazon.com/blogs/aws/amazon-sagemaker-experiments-organize-track-and-compare-your-machine-learning-trainings/)
+- [[AWS] Decrease Your Machine Learning Costs with Instance Price Reductions and Savings Plans for Amazon SageMaker](https://aws.amazon.com/blogs/aws/slash-your-machine-learning-costs-with-instance-price-reductions-and-savings-plans-for-amazon-sagemaker/)
+- [[AWS] Dive deep into Amazon SageMaker Studio Notebooks architecture](https://aws.amazon.com/blogs/machine-learning/dive-deep-into-amazon-sagemaker-studio-notebook-architecture/)
+- [[Github] Terraform SageMaker Sample 1](https://github.com/yuyasugano/terraform-sagemaker-sample-1)
+- [[AWS] Building a custom classifier using Amazon Comprehend](https://aws.amazon.com/blogs/machine-learning/building-a-custom-classifier-using-amazon-comprehend/)
+- [[AWS] Amazon SageMaker autopilot: a white box AutoML solution at scale](https://www.amazon.science/publications/amazon-sagemaker-autopilot-a-white-box-automl-solution-at-scale)
+- [[AWS] Adding a data labeling workflow for named entity recognition with Amazon SageMaker Ground Truth](https://aws.amazon.com/blogs/machine-learning/adding-a-data-labeling-workflow-for-named-entity-recognition-with-amazon-sagemaker-ground-truth/)
+- [[AWS] EC2 block device mapping examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html#scenario-ec2-bdm)
+- [[Github] awslabs/aws-cloudformation-template-builder](https://github.com/awslabs/aws-cloudformation-template-builder)
+- [[AWS] I've lost my private key. How can I connect to my Linux instance?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#replacing-lost-key-pair)
+- [[AWS] Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html)
+- [[Stackoverflow] Can we dynamically create Keypair through AWS Cloudformation and copy the .PEM file to EC2 Linux instance](https://stackoverflow.com/questions/59985243/can-we-dynamically-create-keypair-through-aws-cloudformation-and-copy-the-pem-f)
+- [[AWS] AlgorithmSpecification](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html)
+- [[AWS] Use Amazon SageMaker Built-in Algorithms or Pre-trained Models](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html)
+- [[AWS] Using Docker containers with SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/docker-containers.html)
+- [[AWS] Prebuilt SageMaker Docker Images for Deep Learning](https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html)
+- [[Security.stackexchange] Differences between the Root user and users with AdministratorAccess in AWS](https://security.stackexchange.com/questions/206737/differences-between-the-root-user-and-users-with-administratoraccess-in-aws)
+- [[AWS] Tasks that require root user credentials](https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html)
+- [[AWS] Creating a billing alarm to monitor your estimated AWS charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html)
+- [[AWS] Amazon CloudWatch template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-cloudwatch.html)
+- [[Github] aws-samples/mlops-amazon-sagemaker](https://github.com/aws-samples/mlops-amazon-sagemaker)
 
 ##  14. <a name='FurtherReading'></a>Further Reading
 
